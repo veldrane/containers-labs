@@ -2,7 +2,7 @@
 
 ```
 mkdir /opt/sshd-rootfs
-dnf install --releasever=9 --installroot=/opt/sshd-rootfs --setopt=install_weak_deps=False --nodocs -y openssh-server openssh passwd shadow-utils bash net-tools iproute curl vim-minimal nano
+dnf install --releasever=9 --installroot=/opt/pinger-rootfs --setopt=install_weak_deps=False --nodocs -y openssh-server openssh passwd shadow-utils bash net-tools iproute curl vim-minimal nano
 ```
 
 ## Prepare veth pars on the host machine

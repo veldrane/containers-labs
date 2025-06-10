@@ -5,6 +5,7 @@ ať již z hlediska samotného runtimu, nasazení nebo zabezpečení.
 
 ### Tasky
 
+
 - Naklonuj si repositář s demonstrační aplikací z github.com/veldrane/containers-app
 - Dle instrukcí aplikaci zkompiluj a spusť
 - Nezapomeň povolit lokální fw (příkaz firewalld port 8080)
