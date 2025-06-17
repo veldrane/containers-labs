@@ -3,7 +3,7 @@
 Pro naše potřeby budeme potřebovat aplikaci na které si demonstrujeme rozdíly mezi během v legacy systému(vm) a kontejnerech
 ať již z hlediska samotného runtimu, nasazení nebo zabezpečení.
 
-### Tasky
+### Úlohy
 
 
 - Naklonuj si repositář s demonstrační aplikací z github.com/veldrane/containers-app

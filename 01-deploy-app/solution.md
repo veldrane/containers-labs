@@ -11,7 +11,7 @@ Receiving objects: 100% (17/17), 7.71 KiB | 2.57 MiB/s, done.
 Resolving deltas: 100% (6/6), done.
 ```
 
-### 2. Build pinger and install pinger
+### 2. Build and install pinger
 
 ```bash
 $ sudo make install
@@ -105,4 +105,4 @@ success
 }
 ```
 
-use for better formating
+use jq tool for better formating
