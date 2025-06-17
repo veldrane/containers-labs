@@ -4,7 +4,7 @@ Poslední lab je zaměřen na docker nebo jiný orchestrátor.
 
 ### Tasky
 
-- Nainstaluj si docker 
+- Nainstaluj si docker (i kdyz budes instalovat docker nainstluje se podman - rhel way - no stress :)
 - Pro aplikaci Pinger vytvoř jednoduchý Dockerfile.
 - Vytvoř image a nahraji do remote registry registry.class.syscallx86.com/username/pinger:latest
 - Spusť pinger v rámci dockeru.
