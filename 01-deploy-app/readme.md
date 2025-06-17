@@ -1,4 +1,4 @@
-## Lab - Instalace demonstracni aplikace
+## Lab - Instalace demonstrační aplikace
 
 Pro naše potřeby budeme potřebovat aplikaci na které si demonstrujeme rozdíly mezi během v legacy systému(vm) a kontejnerech
 ať již z hlediska samotného runtimu, nasazení nebo zabezpečení.

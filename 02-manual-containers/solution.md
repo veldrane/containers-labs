@@ -80,4 +80,12 @@ ip netns exec pinger ip link set lo up
 ```
 
 
-## Run the unshare command and bring the network namespace up
+## Start pinger in own namespace
+
+
+### Run the ip net ns command with unshare :)
+
+```bash
+# ip netns exec pinger unshare --fork --pid --mount --mount-proc --uts --ipc -- chroot /opt/pinger-rootfs/ /bin/bash
+bash-5.1#
+```
