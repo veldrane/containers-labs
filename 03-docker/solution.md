@@ -17,7 +17,8 @@ ENTRYPOINT ["/pinger-static"]
 ### Docker install
 
 ```bash
-
+# dnf -y install docker
+```
 
 ### Build docker image
 
