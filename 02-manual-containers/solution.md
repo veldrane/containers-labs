@@ -1,8 +1,8 @@
 ## Make a root from scratch
 
 ```
-mkdir /opt/sshd-rootfs
-dnf install --releasever=9 --installroot=/opt/pinger-rootfs --setopt=install_weak_deps=False --nodocs -y openssh-server openssh passwd shadow-utils bash net-tools iproute curl vim-minimal nano
+mkdir /opt/pinger-rootfs
+dnf install --releasever=9 --installroot=/opt/pinger-rootfs --setopt=install_weak_deps=False --nodocs -y passwd shadow-utils bash net-tools iproute curl vim-minimal nano
 ```
 
 ## Prepare veth pars on the host machine
@@ -66,7 +66,7 @@ ip netns exec pinger ip link set lo up
 ```
 
 
-### Complete
+### Complete network cfg
 ```bash
 ip netns add pinger
 ip netns list
@@ -78,3 +78,6 @@ ip netns exec pinger ip addr add 10.200.0.2/24 dev veth-pinger
 ip netns exec pinger ip link set veth-pinger up
 ip netns exec pinger ip link set lo up
 ```
+
+
+## Run the unshare command and bring the network namespace up

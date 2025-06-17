@@ -6,15 +6,18 @@ zařízení a izolujeme v tomto prostředí naší aplikaci kterou jsme si vydep
 
 ### Tasky
 
-- Vytvoř si separátní rootfs v /opt/rootfs-pinger pomocí yum nebo dnf
+- Vytvoř si separátní rootfs v /opt/rootfs-pinger pomocí dnf a parametru installroot 
+    - V rámci deploymentu nezapomeň na balíčky: passwd shadow-utils bash net-tools iproute iputils curl
+- Do nového rootfs přenes app pinger (nejlépe statickou verzi)
 - Zkompiluj pinger jako statickou binárku,vysledný soubor nahrej do /opt/rootfs-pinger, přidej práva pro spuštění
 - Vytvoř network namespace pinger
 - Vytvoř zařízení veth-pair, kde jeden konec bude v namespacu pinger a druhý zůstane v hlavním ns
 - Zkonfiguruj veth zarizeni v hlavnim ns tak aby melo ip adresu 10.200.x.1/24
-- Zkonfiguruj ip pro zarizeni v ns pinger s ip 10.200.x.10/24
-- Oba konce veth pair dej do stavu ap a zkus ping z hlavniho ns na adresu 10.200.x.10
-- Pomocí příkazu unshare vytvoř izolované prostředí
-- V rámci izolovaného prosředí něj pusť pinger
+- Zkonfiguruj ip pro zarizeni v ns pinger s ip 10.200.x.ě/24
+- Oba konce veth pair dej do stavu up a zkus ping z hlavniho ns na adresu 10.200.x.10
+- Pomocí příkazu ip netns exec pinger unshare vytvoř izolované prostředí
+- V novém nsmountuj procfs
+- V rámci izolovaného prostředí něj pusť pinger
 - Otestuj pinger curlem z hlavního ns
 
 ### Diskuse
