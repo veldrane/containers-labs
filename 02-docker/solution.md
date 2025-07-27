@@ -101,23 +101,4 @@ Emulate Docker CLI using podman. Create /etc/containers/nodocker to quiet msg.
                "IPPrefixLen": 16,
 .
 .
-# lsns | grep net
-4026531840 net       156     1 root   /usr/lib/systemd/systemd --switched-root --system --deserialize 30
-4026532493 net         1   827 root   /usr/sbin/irqbalance
-4026532568 net         1  6759 root   /pinger-static
-
-# nsenter -n -t 6759
-[root@probeeh docker-build]# ip a
-1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
-    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-    inet 127.0.0.1/8 scope host lo
-       valid_lft forever preferred_lft forever
-    inet6 ::1/128 scope host 
-       valid_lft forever preferred_lft forever
-2: eth0@if12: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
-    link/ether 56:36:91:4f:63:ac brd ff:ff:ff:ff:ff:ff link-netnsid 0
-    inet 10.88.0.6/16 brd 10.88.255.255 scope global eth0
-       valid_lft forever preferred_lft forever
-    inet6 fe80::5436:91ff:fe4f:63ac/64 scope link 
-       valid_lft forever preferred_lft forever
 ```

@@ -1,6 +1,7 @@
 ## Lab - Docker/Podman
 
-Poslední lab je zaměřen na docker nebo jiný orchestrátor.
+Druhý lab je zaměřen na docker nebo jiný orchestrátor. Pozor, i když v labu instalujete docker nainstaluje se podman (rhel distro based quirks :)!
+Niméně příkazy i paramtetry jsou totožné, lze použít příkaz "docker" (je to symbolický link na podman)
 
 ### Tasky
 
@@ -26,7 +27,4 @@ Poslední lab je zaměřen na docker nebo jiný orchestrátor.
 
 ### Diskuse
 
-- Porovnej deploy v legacy, ve "vlastním kontejneru", pomocí docker buildu.
-- Přes docker inspect identifikuj namespacy pod kterým kontejner běží
-- Přes netns se zkus do daného ns připojit
 - Testuj pinger a porovnej výsledky z legacy, vlastního kontejneru, dockeru.

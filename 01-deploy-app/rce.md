@@ -1,6 +1,6 @@
 ## RCE attack examples on pinger
 
-Due to poor or missing input sanitization, the application awesome-pinger contains a critical vulnerability that allows an attacker to execute arbitrary code on the remote machine under the UID of the pinger user.
+Due to poor or missing input sanitization, the application awesome-pinger(containers-app) contains a critical vulnerability that allows an attacker to execute arbitrary code on the remote machine under the UID of the pinger user.
 
 Using curl, it is possible to execute any binary available on the system — or even install new software and run a reverse tunnel.
 
