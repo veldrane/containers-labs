@@ -11,8 +11,8 @@ Toto repo obsahuje praktické laby určené ke školení a výuce práce s konte
 Repo obsahuje jednotlivé laby jako Markdown soubory, seřazené tematicky a srozumitelně:
 
 - Úvod do kontejnerů
-- Vytváříme kontejner
 - Používáme docker
+- Vytváříme kontejner ručně
 
 Každý lab obsahuje:
 - Úvodní popis
