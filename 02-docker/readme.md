@@ -21,6 +21,7 @@ a které pod klasickým uživatelem
         - zjisti konfiugraci ip stacku
         - pro odvážné: na host si nainstaluj tcpdump a sleduj síťový tok na docker kontejner
 - Pomocí příkazu lsns zkus identifikovat namespaces aplikace
+
 - Přes přes příkaz docker exec se připoj do běžícího kontejneru
 - Co zkus si vypsat procesy
 - Zkus si přes docker pull a start si pustit image kolegy/kolegyně :)
