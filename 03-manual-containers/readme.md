@@ -3,7 +3,8 @@
 V rámci tohoto labu si vytvoříme kontejner ručně, bez dockeru/podmanu etc. Měli byste dojít k poznání co to vlastně kontejner 
 je a co se děle tzv. "pod pokličkou". Zaměříme se na základní stavební kameny, vytvoříme si rootfs, virtualní network
 zařízení a izolujeme v tomto prostředí naší aplikaci kterou jsme si vydeplojovali v předchozím labu. V solutions.md je 
-step by step celé řešení, nicméně doporučuji se tím zkusit protrápit sám/s pomocí chatgpt apod :)
+step by step celé řešení, nicméně doporučuji se tím zkusit protrápit sám/s pomocí chatgpt apod :). Pro většinu kroků 
+
 
 ### Tasky
 
@@ -17,7 +18,7 @@ step by step celé řešení, nicméně doporučuji se tím zkusit protrápit s�
 - Zkonfiguruj ip pro zarizeni v ns pinger s ip 10.200.x.10/24
 - Oba konce veth pair dej do stavu up a zkus ping z hlavniho ns na adresu 10.200.x.10
 - Pomocí příkazu ip netns exec pinger unshare vytvoř izolované prostředí
-- V novém nsmountuj procfs
+- V novém ns namountuj procfs
 - V rámci izolovaného prostředí něj pusť pinger
 - Otestuj pinger curlem z hlavního ns
 - Optional(viz lab2): Vezmi rootfs co jsi vytvořil a:
