@@ -44,8 +44,8 @@ install -Dm755 target/release/pinger /usr/local/bin/pinger
 ```bash
 $ su -
 Last login: Tue Jun 17 11:41:57 CEST 2025 on pts/0
-[root@probeeh ~]# 
-[root@probeeh ~]# firewall-cmd --list-all
+[root@probee-1 ~]# 
+[root@probee-1 ~]# firewall-cmd --list-all
 public (active)
   target: default
   icmp-block-inversion: no
@@ -60,27 +60,27 @@ public (active)
   source-ports: 
   icmp-blocks: 
   rich rules: 
-[root@probeeh ~]# firewall-cmd --add-port 8080/tcp --permanent
+[root@probee-1 ~]# firewall-cmd --add-port 8080/tcp --permanent
 success
-[root@probeeh ~]# firewall-cmd --reload
+[root@probee-1 ~]# firewall-cmd --reload
 success
 ```
 
 ### 4. Run the application
 
 ```bash
-[root@probeeh ~]# /usr/local/bin/pinger
+[root@probee-1 ~]# /usr/local/bin/pinger
 2025-06-17 11:48:30 Info: Listening on 0.0.0.0:8080
 ```
 
 ### 5. Test it from jump server
 
 ```bash
-[jdvorak@jump ~]$ curl http://probeeh:8080 -k -v
+[jdvorak@jump ~]$ curl http://probee-1:8080 -k -v
 *   Trying 10.4.8.21:8080...
-* Connected to probeeh (10.4.8.21) port 8080 (#0)
+* Connected to probee-1 (10.4.8.21) port 8080 (#0)
 > GET / HTTP/1.1
-> Host: probeeh:8080
+> Host: probee-1:8080
 > User-Agent: curl/7.76.1
 > Accept: */*
 > 
@@ -91,9 +91,9 @@ success
 < 
 * Closing connection 0
 {"date":"2025-06-17 11:48:30","target":"","state":"Down","message":""}[jdvorak@jump ~]$ 
-[jdvorak@jump ~]$ curl http://probeeh:8080?ip=127.0.0.1
+[jdvorak@jump ~]$ curl http://probee-1:8080?ip=127.0.0.1
 {"date":"2025-06-17 11:48:30","target":"127.0.0.1","state":"Up","message":"PING 127.0.0.1 (127.0.0.1) 56(84) bytes of data.\n64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.109 ms\n64 bytes from 127.0.0.1: icmp_seq=2 ttl=64 time=0.081 ms\n64 bytes from 127.0.0.1: icmp_seq=3 ttl=64 time=0.078 ms\n\n--- 127.0.0.1 ping statistics ---\n3 packets transmitted, 3 received, 0% packet loss, time 2057ms"}
-[jdvorak@jump ~]$ curl http://probeeh:8080?ip=127.0.0.1 | jq . -r
+[jdvorak@jump ~]$ curl http://probee-1:8080?ip=127.0.0.1 | jq . -r
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100   453    0   453    0     0    220      0 --:--:--  0:00:02 --:--:--   220
