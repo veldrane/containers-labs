@@ -2,22 +2,22 @@
   <img src="./images/containers-lab.png" alt="containers-lab" width="800"/>
 </p>
 
-# 🧪 Containers Labs
+# Containers Labs
 
 Toto repo obsahuje praktické laby určené ke školení a výuce práce s kontejnery (Docker / Podman).
 
-## 📂 Obsah
+## Obsah
 
-Repo obsahuje jednotlivé laby jako Markdown soubory, seřazené tematicky a srozumitelně:
+Repo obsahuje jednotlivé laby jako markdown soubory, seřazené tematicky dle kapitol 
 
 - Úvod do kontejnerů
 - Používáme docker
-- Vytváříme kontejner ručně
+- Vytváříme kontejner bez runtimu jako je docker/podman apod.
 
 Každý lab obsahuje:
-- Úvodní popis
-- Návod krok za krokem
+- Popis
+- Návod step-by-step
 
-## 📌 Licence
+## Licence
 
 Repo je veřejné – neváhej forknout, upravit a použít pro výuku či vlastní studium.

@@ -1,33 +1,57 @@
-## Lab - Docker/Podman
+# Lab 02 – Docker / Podman
 
-Druhý lab je zaměřen na docker nebo jiný orchestrátor. Pozor, i když v labu instalujete docker nainstaluje se podman (rhel distro based quirks :)!
-Niméně příkazy i paramtetry jsou totožné, lze použít příkaz "docker" (je to symbolický link na podman). Rozmysli si, které tasky budeš dělat pod rootem
-a které pod klasickým uživatelem
+V tomhle labu se zaměříme na práci s Dockerem (resp. Podmanem).  
+Pozor: i když budete instalovat balík `docker`, na RHEL-based distribucích se ve skutečnosti nainstaluje **Podman**.  
+To je v pořádku – příkazy i parametry jsou totožné a příkaz `docker` je jen symbolický link na `podman`.
 
-### Tasky
+Stejně jako v předchozím labu si rozmyslete, které úlohy budete provádět jako root a které jako běžný uživatel.
 
-- Nainstaluj si docker (i když budeš instalovat docker nainstaluje se podman - rhel way :)
-- Pro aplikaci Pinger vytvoř jednoduchý Dockerfile.
-- Vytvoř image a nahraji do remote registry registry.class.syscallx86.com/username/pinger:latest
-    - Image by měla obsahovat net-tools iproute iputils bash proc-ps další balíčkům se meze nekladou
-    - pro base image můžeš použít třeba docker.io/ustclug/rocky:9-minimal
-- Spusť pinger v rámci dockeru.
-- Otestuj curlem
-- Přes docker inspect container id zjisti:
-    - bežící reálný pid v rámci host serveru
-    - ip adresu
-- Pomocí přikazu nsenter -n -t PID se přepni do network namespacu (o namespacech budeme mluvit v další kapitole)
-    - nyní bys měl být v kontextu network ns pingeru ale máš k dispozici toolset hosta otestuj:
-        - zjisti konfiugraci ip stacku
-        - pro odvážné: na host si nainstaluj tcpdump a sleduj síťový tok na docker kontejner
-- Pomocí příkazu lsns zkus identifikovat namespaces aplikace
+---
 
-- Přes přes příkaz docker exec se připoj do běžícího kontejneru
-- Co zkus si vypsat procesy
-- Zkus si přes docker pull a start si pustit image kolegy/kolegyně :)
+## Úlohy
 
+1. **Nainstalujte Docker** (resp. Podman – RHEL způsob 😊).
 
-### Diskuse
+2. **Pro aplikaci Pinger**, kterou jste zkompilovali v minulém labu,  
+   vytvořte **jednoduchý Dockerfile**.
 
-- Testuj pinger a porovnej výsledky z legacy
-- Kolik vrstev má Tvá výsledná image ? Je možná nějaká optimalizace ?
+3. **Vytvořte image** a nahrajte ji do vzdálené registry:  
+   `registry.class.syscallx86.com/<username>/pinger:<verze>`  
+   - Image by měla obsahovat nástroje jako:
+     - `net-tools`, `iproute`, `iputils`, `bash`, `procps`
+     - další balíčky dle uvážení
+   - Jako base image můžete použít např.:  
+     `docker.io/ustclug/rocky:9-minimal`
+   - docker registry jsou bez loginu a tls
+
+4. **Spusťte Pinger uvnitř containeru.**
+
+5. **Nazapomeň na portmapping portu aplikace aby byla viditelná zvenku**
+    - docker run -p 8080:8080 <image>
+
+6. Pomocí **`docker inspect <container-id>`** zjistěte:
+   - běžící reálné PID procesu na hostiteli  
+   - IP adresu containeru
+
+5. **Otestujte aplikaci pomocí `curl`.**
+
+7. Otestujte možnosti **RCA** pomocí `curl`  
+   (viz předchozí lab).
+
+8. Zkoušejte různé varianty Dockerfilu – např. omezte množství instalovaných balíčků –  
+   a porovnejte dopad na:
+   - RCA výstup,  
+   - běh aplikace,  
+   - možnosti troubleshootingu.
+   - velikost image (docker image <jmeno>)
+
+9. Pomocí `docker pull` a `docker run` zkuste spustit **image kolegy/kolegyně**.  
+   (Pozor na namespace! 😀)
+
+---
+
+## Diskuse
+
+- Porovnejte výsledky Pingeru v containeru vs. na „legacy“ běhu (VM).
+- Kolik vrstev má vaše výsledná image?  
+  Je možné ji nějak optimalizovat (např. minimal base image, sloučení RUN kroků)?

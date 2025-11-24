@@ -1,28 +1,51 @@
-## Lab - Instalace demonstrační aplikace
+# 01 Lab – Instalace demonstrační aplikace
 
-Pro naše potřeby budeme potřebovat aplikaci na které si demonstrujeme rozdíly mezi během v legacy systému(vm) a kontejnerech
-ať již z hlediska samotného runtimu, nasazení nebo zabezpečení. Veškerá práce by měla probíhat na Vašem přiděleném serveru
-probee-x, jump server je pouze pro přístup dol labu, je možné ho také použít pro ověření aplikace přes curl.
-Z jump serveru na probee se dostanete bez hesla přes svůj přidělený account, stejně tak bez hesla se přihlásíte na 
-roota. Je na Vás zda úlohy budete pravádět pod rootem nebo pod Vaším uživatelem (bude záležet na situaci)
+V téhle první části budeme potřebovat jednoduchou ukázkovou aplikaci, na které si demonstrujeme rozdíly mezi během na *legacy* systému (VM) a v kontejnerech – ať už z pohledu runtimu, nasazení nebo zabezpečení.
 
-### Úlohy
+Veškerá práce bude probíhat na vašem přiděleném serveru **probee-x**. Jump server slouží jen k přístupu do labu a případně k rychlému otestování aplikace přes `curl`.
 
+Z jump serveru na svůj probee se přihlásíte bez hesla pomocí přiděleného účtu. Stejně tak se bez hesla přihlásíte i na roota na své stanici probee-x. Je na vás, zda budete úlohy provádět jako root, nebo jako svůj běžný uživatel – záleží na situaci a co chcete otestovat.
 
-- Naklonuj si repositář s demonstrační aplikací z github.com/veldrane/containers-app (git je nainstalován)
-- Dle instrukcí aplikaci zkompiluj a spusť
-    - Pozor! Projekt obsahuje standartni readme.md pro jakykoliv projekt na githubu
-      Neni potřeba dělat všechny kroky. Důležité je jen zkompilovat a přes "sudo make install"
-      nainstalovat applikaci do nějaké spustitelné cesty (/usr/local/bin/ třeba)
-    - Veškerý pot5ebn7 toolkit (rust, musl, automake) je nainstalován
-- Nezapomeň povolit lokální fw port 8080 (příkaz firewalld-cmd)
-- Oveř si curlem jak ze samotné probee tak z jump serveru, že aplikace funguje.
-- aplikace má výstup v jsonu, použij jq příkaz pro lepší formátování. Jq by mělo být nainstalováno
-- Zkus si app pustit jak pod rootem tak pod Tvým lokálním účtem
-- Dej mi vědět až budeš hotov, Lab tímto ještě nekončí :)
+Lab je koncipovaný tak, abyste si „osahali“ základní workflow buildu libovolné OSS aplikace na Linuxu a jejího nasazení. Typicky to zahrnuje:
 
-### Diskuse
+- Build/kompilaci přes `make` nebo podobné nástroje (standard v Unix/Linux světě)
+- Případné povolení firewall pravidel
+- Pochopení rozdílů mezi během pod rootem a pod běžným uživatelem
+- Základní linuxový tooling (pokud s ním nemáte zkušenosti), jako např.:
+  - zobrazení procesů, logů, environment proměnných
+  - instalaci balíčků a pomocných nástrojů
+  - základní testování serverových aplikací (`curl`, `jq`, …)
+- Uvědomění si rizik běhu aplikace pod právy roota
 
-- Prozkoumej výstup aplikace. Je na ní něco zvláštního ?
+---
 
+## Úlohy
 
+1. **Naklonujte si repozitář** s demonstrační aplikací:  
+   `https://github.com/veldrane/containers-app`  
+   (Git je nainstalovaný.)
+
+2. **Dle instrukcí aplikaci zkompilujte a spusťte.**
+   - Pozor! Projekt obsahuje standardní GitHubové `README.md`.  
+     Není potřeba dělat všechny kroky – stačí aplikaci zkompilovat a pomocí  
+     `sudo make install` ji nainstalovat do nějaké spustitelné cesty  
+     (např. `/usr/local/bin`).
+   - Veškerý potřebný toolchain (Rust, musl, automake) už je nainstalovaný.
+
+3. **Povolte lokální firewall port 8080** (`firewall-cmd`), ideálně i trvale (`--permanent`):  
+   https://firewalld.org/documentation/howto/open-a-port-or-service.html
+
+4. **Ověřte funkčnost pomocí `curl`** – jak přímo z vašeho probee-x, tak z jump serveru.
+
+5. Aplikace vrací výstup v JSONu → **použijte `jq`** pro hezčí formátování.  
+   (`jq` je nainstalované.)
+
+6. **Vyzkoušejte spuštění aplikace jak pod rootem, tak pod svým uživatelem.**
+
+7. Až budete hotovi, dejte mi vědět – **lab ještě nekončí**. 🙂
+
+---
+
+## Diskuse
+
+- Prozkoumejte výstup aplikace. Je na něm něco zvláštního?
