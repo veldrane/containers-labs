@@ -14,29 +14,52 @@ Resolving deltas: 100% (6/6), done.
 ### 2. Build and install pinger
 
 ```bash
-$ sudo make install
-
-We trust you have received the usual lecture from the local System
-Administrator. It usually boils down to these three things:
-
-    #1) Respect the privacy of others.
-    #2) Think before you type.
-    #3) With great power comes great responsibility.
-
-[sudo] password for jdvorak: 
+$ make
 cargo build --release
-    Updating crates.io index
-  Downloaded equivalent v1.0.2
-  Downloaded urlencoding v2.1.3
-  Downloaded num-conv v0.1.0
-  Downloaded fnv v1.0.7
-  Downloaded itoa v1.0.15
-.
-.
+   Compiling proc-macro2 v1.0.95
+   Compiling unicode-ident v1.0.18
+   Compiling fnv v1.0.7
+   Compiling strsim v0.11.1
+   Compiling ident_case v1.0.1
+   Compiling autocfg v1.4.0
+   Compiling quote v1.0.40
+   Compiling serde v1.0.219
+   Compiling syn v2.0.101
+   Compiling num-traits v0.2.19
+   Compiling serde_json v1.0.140
+   Compiling ryu v1.0.20
+   Compiling memchr v2.7.4
+   Compiling itoa v1.0.15
+   Compiling iana-time-zone v0.1.63
+   Compiling darling_core v0.20.11
+   Compiling serde_derive v1.0.219
+   Compiling darling_macro v0.20.11
+   Compiling darling v0.20.11
+   Compiling serde_with_macros v3.12.0
+   Compiling chrono v0.4.41
+   Compiling serde_with v3.12.0
    Compiling urlencoding v2.1.3
    Compiling pinger v0.1.0 (/home/jdvorak/containers-app)
-    Finished `release` profile [optimized] target(s) in 21.29s
+    Finished `release` profile [optimized] target(s) in 16.96s
+[jdvorak@probee-1 containers-app]$ make static
+cargo build --release --target=x86_64-unknown-linux-musl
+   Compiling serde v1.0.219
+   Compiling num-traits v0.2.19
+   Compiling serde_json v1.0.140
+   Compiling iana-time-zone v0.1.63
+   Compiling memchr v2.7.4
+   Compiling ryu v1.0.20
+   Compiling itoa v1.0.15
+   Compiling serde_with v3.12.0
+   Compiling chrono v0.4.41
+   Compiling urlencoding v2.1.3
+   Compiling pinger v0.1.0 (/home/jdvorak/containers-app)
+    Finished `release` profile [optimized] target(s) in 9.92s
+[jdvorak@probee-1 containers-app]$ sudo make install
 install -Dm755 target/release/pinger /usr/local/bin/pinger
+[jdvorak@probee-1 containers-app]$ sudo make install-static
+install -Dm755 target/x86_64-unknown-linux-musl/release/pinger /usr/local/bin/pinger-static
+[jdvorak@probee-1 containers-app]$ strip target/x86_64-unknown-linux-musl/release/pinger
 ```
 
 ### 3. Enable firewalld

@@ -31,9 +31,12 @@ Lab je koncipovaný tak, abyste si „osahali“ základní workflow buildu libo
      `sudo make install` ji nainstalovat do nějaké spustitelné cesty  
      (např. `/usr/local/bin`).
    - Veškerý potřebný toolchain (Rust, musl, automake) už je nainstalovaný.
+   - stripe binárního souboru nebude funguvat bez příslušného balíčku (pohledejte na netu :)
+      - tento krok v readme.md aplikace můžete ignorovat, v případě zájmu vysvětlím
 
 3. **Povolte lokální firewall port 8080** (`firewall-cmd`), ideálně i trvale (`--permanent`):  
    https://firewalld.org/documentation/howto/open-a-port-or-service.html
+   - příkaz na povolení fwirewall rules musíte spustit pod rootem probee stance
 
 4. **Ověřte funkčnost pomocí `curl`** – jak přímo z vašeho probee-x, tak z jump serveru.
 
