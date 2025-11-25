@@ -18,7 +18,7 @@ Stejně jako v předchozím labu si rozmyslete, které úlohy budete provádět 
 3. **Vytvořte image** a nahrajte ji do vzdálené registry:  
    `registry.class.syscallx86.com/<username>/pinger:<verze>`  
    - Image by měla obsahovat nástroje jako:
-     - `net-tools`, `iproute`, `iputils`, `bash`, `procps`
+     - `net-tools`, `iproute`, `iputils`, `bash`, `procps-ng`
      - další balíčky dle uvážení
    - Jako base image můžete použít např.:  
      `docker.io/ustclug/rocky:9-minimal`
@@ -26,7 +26,7 @@ Stejně jako v předchozím labu si rozmyslete, které úlohy budete provádět 
 
 4. **Spusťte Pinger uvnitř containeru.**
 
-5. **Nazapomeň na portmapping portu aplikace aby byla viditelná zvenku**
+5. **Optional: nakonfiguruj portmapping portu aplikace aby byla viditelná zvenku**
     - docker run -p 8080:8080 <image>
 
 6. Pomocí **`docker inspect <container-id>`** zjistěte:
