@@ -18,6 +18,14 @@ Každý lab obsahuje:
 - Popis
 - Návod step-by-step
 
+## Aplikace 
+
+Součástí labu je i vzorová aplikace se kterou budeme pracovat a je k dispozici na gitu:
+
+
+https://github.com/veldrane/containers-app
+
+
 ## Licence
 
 Repo je veřejné – neváhej forknout, upravit a použít pro výuku či vlastní studium.
