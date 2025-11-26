@@ -1,4 +1,4 @@
-### Informace o kontejneru
+### Information about containers
 
 ```
 # docker ps
@@ -15,7 +15,7 @@ Emulate Docker CLI using podman. Create /etc/containers/nodocker to quiet msg.
                "PidsLimit": 2048,
 ```
 
-### Nsenter a informace ip - pouzivani host toolu v kontejneru
+### Usage host tools in container
 
 ```
 # ip a
@@ -33,7 +33,7 @@ Emulate Docker CLI using podman. Create /etc/containers/nodocker to quiet msg.
        valid_lft forever preferred_lft forever
 ```
 
-### Prepnuti se komplente do kontextu kontejneru
+### Change context of the container
 
 ```
 # ps -fe
@@ -108,8 +108,7 @@ drwxr-xr-x.   2 root root   4096 May 16  2022 srv
 [root@2198de0f2a3b /]# 
 ```
 
-### Vypsani procesu z vnitrku kontejneru - priklad:
-
+### Look at inside container and namespaces via nsenter command (will be discussed next chapter)
 ```
 [root@probee-1 build]# nsenter -t 1806 -p -m -- ps -fe
 UID          PID    PPID  C STIME TTY          TIME CMD

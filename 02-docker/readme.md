@@ -38,7 +38,7 @@ Stejně jako v předchozím labu si rozmyslete, které úlohy budete provádět 
 7. Otestujte možnosti **RCA** pomocí `curl`  
    (viz předchozí lab).
 
-8. Zkoušejte různé varianty Dockerfilu – např. omezte množství instalovaných balíčků –  
+8. Zkoušejte různé varianty Dockerfilu, vytvořte si novou verzi image (tag) – např. omezte množství instalovaných balíčků –  
    a porovnejte dopad na:
    - RCA výstup,  
    - běh aplikace,  
